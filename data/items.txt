@@ -1,0 +1,9 @@
+coin 1
+axe 25
+pickaxe 25
+ore 10
+bar 20
+log .5
+plank 1
+stone 2
+coal 5
