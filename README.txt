@@ -26,8 +26,7 @@ Build a forge and begin an army
 Buildings:
 Sawmill 
 Forge
-Mint 
-Forge 
+Mint  
 Sculptory
 Barracks
 Shacks

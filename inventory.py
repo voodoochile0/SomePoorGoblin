@@ -1,3 +1,4 @@
+import pprint
 
 # Inventory class that contains item objects and their quantaties in a dictionary
 
@@ -5,7 +6,7 @@ class Inventory:
 
     items = {}
 
-    def __init__(self):
+    def Inventory(self):
         pass
 
     def addItem(self, item):
@@ -23,7 +24,8 @@ class Inventory:
             if(count == 0):
                 self.items.pop(item)
 
-    def items(self):
-        return self.items
-
-    def totalValue(self):
+    def stringify(self):
+        string = ""
+        for key in self.items.keys():
+            string = string + key.stringify() + " " + str(self.items[key]) + " " + str(key.value) + "\n"
+        return string

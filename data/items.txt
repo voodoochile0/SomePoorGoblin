@@ -7,3 +7,4 @@ log .5
 plank 1
 stone 2
 coal 5
+statue 50
