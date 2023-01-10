@@ -2,18 +2,18 @@ import SomePoorGoblin
 
 # Mint class to consume bars to produce coins
 
-level = 
+level = 0
+MAX_LEVEL = 7
 
 def craftCoin(type):
-    SomePoorGoblin.treasury
+    
 
-def build():
-    if level == 5:
+def upgrade():
+    if level == MAX_LEVEL:
         return False
     else:
         level = level + 1
         return True
 
 def buildReqs():
-
-
+    
