@@ -1,17 +1,19 @@
 
 # Forge class to consume bars to produce weapons and armor
 
-level = 0
-MAX_LEVEL = 6
+import SomePoorGoblin
+import json
 
-def craftBar(type):
+level = 0
+reqs = json.load(open("data/upgradeRequirements.json"))["Forge"]
+
+# def craftSword(type):
+
+
+# def craftArmor(type):
     
 
 def upgrade():
-    if level == MAX_LEVEL:
-        return False
-    else:
-        level = level + 1
-        return True
+    pass
 
-def buildReqs():
+# def buildReqs():

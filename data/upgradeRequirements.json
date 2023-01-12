@@ -1,0 +1,105 @@
+{
+    "Forge": {
+        "1": {
+
+        },
+        "2": {
+
+        },
+        "3": {
+
+        },
+        "4": {
+            
+        },
+        "5": {
+
+        },
+        "6": {
+            
+        },
+        "7": {
+
+        }
+    },
+    "Furnace": {
+        "1": {
+            "plank": 20,
+            "stone": 50
+        },
+        "2": {
+            "plank": 20,
+            "stone": 50
+        },
+        "3": {
+            "plank": 20,
+            "stone": 50
+        },
+        "4": {
+            "plank": 20,
+            "stone": 50
+        },
+        "5": {
+            "plank": 20,
+            "stone": 50
+        },
+        "6": {
+            "plank": 20,
+            "stone": 50
+        }
+    },
+    "Mint": {
+        "1": {
+            "plank": 25,
+            "stone": 15
+        },
+        "2": {
+            "plank": 50,
+            "stone": 25,
+            "wooden coin": 10
+        },
+        "3": {
+            "plank": 50,
+            "stone": 25,
+            "copper coin": 10
+        },
+        "4": {
+            "plank": 50,
+            "stone": 25,
+            "iron coin": 10
+        },
+        "5": {
+            "plank": 50,
+            "stone": 25,
+            "bronze coin": 10
+        },
+        "6": {
+            "plank": 50,
+            "stone": 25,
+            "silver coin": 10
+        },
+        "7": {
+            "plank": 50,
+            "stone": 25,
+            "gold coin": 10
+        }
+    },
+    "Sawmill": {
+        "1": {
+            "log": 25
+        },
+        "2": {
+            "plank": 50
+        },
+        "3": {
+            "plank": 100
+        },
+        "4": {
+            "plank": 200
+        },
+        "5": {
+            "plank": 400
+        }
+    }
+
+}

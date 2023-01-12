@@ -6,8 +6,6 @@ class Item:
     name = ""
     value = 0.0
     allAttributes = {}
-
-    ## STATIC VARS
     activeAttributes = {}
     ATTRFILE = "data/attributes.txt"
 
@@ -18,6 +16,15 @@ class Item:
         attrName = currentAttr[0]
         attrContr = float(currentAttr[1])
         allAttributes[attrName] = attrContr
+
+    def copy(self):
+        newAttr = self.activeAttributes.copy()
+        newVal = self.value
+        name = self.name
+        newItem = Item(name, newVal)
+        for i in range(len(newAttr)):
+            newItem.addAttribute(newAttr[i])
+        return newItem
 
     def __init__(self, name, value):
         self.name = name
@@ -30,14 +37,20 @@ class Item:
             self.value = self.value * self.allAttributes[attribute]
 
     def removeAttribute(self, attribute):
-        if(self.activeAttributes().keys().__contains__(attribute)):
+        if(self.activeAttributes.keys().__contains__(attribute)):
             self.value = self.value / self.allAttributes[attribute]
             self.activeAttributes.pop(attribute)
 
-    def stringify(self):
+    def stringifyItem(self):
         string = ""
         for key in self.activeAttributes.keys():
             string = string + key + " "
         string = string + self.name
         return string
+
+    def equals(self, item):
+        if self.stringifyItem() == item.stringifyItem():
+            return True
+        else:
+            return False
     
