@@ -61,29 +61,24 @@
         "2": {
             "plank": 50,
             "stone": 25,
-            "wooden coin": 10
+            "copper coin": 10
         },
         "3": {
             "plank": 50,
             "stone": 25,
-            "copper coin": 10
+            "iron coin": 10
         },
         "4": {
             "plank": 50,
             "stone": 25,
-            "iron coin": 10
+            "bronze coin": 10
         },
         "5": {
             "plank": 50,
             "stone": 25,
-            "bronze coin": 10
-        },
-        "6": {
-            "plank": 50,
-            "stone": 25,
             "silver coin": 10
         },
-        "7": {
+        "6": {
             "plank": 50,
             "stone": 25,
             "gold coin": 10

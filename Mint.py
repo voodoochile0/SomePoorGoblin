@@ -12,10 +12,8 @@ level = 0
 reqs = json.load(open("data/upgradeRequirements.json"))["Mint"]
 
 def mintCoins(type):
-    if type == "wooden":
-        Treasury.removeItem("plank")
-    else:
-        Treasury.removeItem(type + " bar")
+    
+    Treasury.removeItem(type + " bar")
 
     for i in range(5):
         Treasury.addItem(type + " coin")

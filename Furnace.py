@@ -25,7 +25,7 @@ def mineStone():
     if(level >= 1 and rnd < 33):
         Treasury.addItem("copper ore")
     if(level >= 2 and rnd < 25):
-        Treasury.addItem("iron pre")
+        Treasury.addItem("iron ore")
     if(level >= 3 and rnd < 15):
         Treasury.addItem("bronze ore")
     if(level >= 4 and rnd < 10):

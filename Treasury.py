@@ -36,7 +36,7 @@ def numberItems(stringify):
             return items[key]
     return 0
 
-def removeItem(item):
+def removeItem(stringify):
     for key in items.keys():
         if key.stringifyItem() == stringify:
             count = items[key] - 1
@@ -45,8 +45,8 @@ def removeItem(item):
 
 def totalValue():
     total = 0.0
-    for value in items.values():
-        total = total + value
+    for item in items.keys():
+        total += (item.value * items[item])
     return total
 
 def stringify():
