@@ -18,12 +18,16 @@ for i in range(input.__len__()):
     thing = Item.Item(itemName, float(currentItem[1]))
     itemSet[thing.stringifyItem()] = thing
 
-def addItem(item):
+def addItem(stringify):
     for key in items.keys():
-        if key.equals(item):
+        if key.stringifyItem() == stringify:
             count = items[key] + 1
             items[key] = count
             return
+    stringify = stringify.split(" ")
+    item = itemSet[stringify[len(stringify) - 1]].copy()
+    if(len(stringify) > 1):
+        item.addAttribute(stringify[0])
     items[item] = 1
 
 def numberItems(stringify):
@@ -34,18 +38,10 @@ def numberItems(stringify):
 
 def removeItem(item):
     for key in items.keys():
-        if key.equals(item):
+        if key.stringifyItem() == stringify:
             count = items[key] - 1
             items[key] = count
             return
-    items[item] = 1
-
-    for key in items.keys():
-        if key.equals(item):
-            count = items[key] - 1
-            items[key] = count
-            return
-    items[item] = 1
 
 def totalValue():
     total = 0.0
@@ -60,9 +56,6 @@ def stringify():
     return string
 
 def generateStartingStash():
-    axe = itemSet["axe"]
-    addItem(axe)
-    pickaxe = itemSet["pickaxe"]
-    addItem(pickaxe)
-    log = itemSet["log"]
-    addItem(log)
+    addItem("stone axe")
+    addItem("stone pickaxe")
+    addItem("log")

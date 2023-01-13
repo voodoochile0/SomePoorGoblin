@@ -29,23 +29,28 @@
         },
         "2": {
             "plank": 20,
-            "stone": 50
+            "stone": 20,
+            "copper bar": 25
         },
         "3": {
             "plank": 20,
-            "stone": 50
+            "stone": 20,
+            "iron bar": 25
         },
         "4": {
             "plank": 20,
-            "stone": 50
+            "stone": 50,
+            "bronze bar": 25
         },
         "5": {
             "plank": 20,
-            "stone": 50
+            "stone": 50,
+            "silver bar": 25
         },
         "6": {
             "plank": 20,
-            "stone": 50
+            "stone": 50,
+            "goal bar": 25
         }
     },
     "Mint": {

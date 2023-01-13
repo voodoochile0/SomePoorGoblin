@@ -3,35 +3,45 @@
 
 import json
 import Treasury
+import Building
+
+maxLevel = 5
 
 global level
 level = 0
 reqs = json.load(open("data/upgradeRequirements.json"))["Sawmill"]
 
-log = Treasury.itemSet["log"].copy()
-plank = Treasury.itemSet["plank"].copy()
-
 def gatherWood():
-    Treasury.addItem(log)
+    Treasury.addItem("log")
 
 def craftPlank():
-    Treasury.removeItem(log)
+    Treasury.removeItem("log")
     for i in range(level):
-        Treasury.addItem(plank)
+        Treasury.addItem("plank")
 
 def canCraftPlank():
     if Treasury.numberItems("log") > 0 and level > 0:
         return True
     return False
 
-def upgrade():
+def upgrade(self):
+    Building.upgrade(self)
+
+def canUpgrade(self):
+    Building.canUpgrade(reqs[str(level) + 1])
+
+def buildReqs():
+    Building.buildReqs()
+
+def buildReqsStr():
+    Building.buildReqsStr()
+
+def upgrade(self):
     toRemove = buildReqs()
     for key in toRemove.keys():
-        item = Treasury.itemSet[key]
         for i in range(toRemove[key]):
-            Treasury.removeItem(item)
-    global level
-    level = level + 1
+            Treasury.removeItem(key)
+    self.level = self.level + 1
 
 def canUpgrade():
     if(level < 5):

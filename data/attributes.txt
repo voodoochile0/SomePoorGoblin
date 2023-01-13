@@ -1,4 +1,5 @@
 raw 1
+stone 1
 wooden 1
 copper 1.2
 iron 1.5
