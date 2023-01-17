@@ -15,9 +15,10 @@ def gatherWood():
     Treasury.addItem("log")
 
 def craftPlank():
-    Treasury.removeItem("log")
-    for i in range(level):
-        Treasury.addItem("plank")
+    if(canCraftPlank()):
+        Treasury.removeItem("log")
+        for i in range(level):
+            Treasury.addItem("plank")
 
 def canCraftPlank():
     if Treasury.numberItems("log") > 0 and level > 0:

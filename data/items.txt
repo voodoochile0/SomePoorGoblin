@@ -1,10 +1,10 @@
 coin 1
 axe 25
 pickaxe 25
-ore 10
-bar 20
-log .5
+ore 3
+bar 6
+log 1
 plank 1
-stone 2
-coal 5
+stone 1
+coal 2
 statue 50

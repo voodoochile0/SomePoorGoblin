@@ -19,41 +19,62 @@ copperCoin.addAttribute("copper")
 global unemployed
 unemployed = 0
 
-valueThreshold = 150
+valueThreshold = 100
 
 types = ["copper", "iron", "bronze", "silver", "gold", "platinum"]
-types = types.reverse()
+types.reverse()
 
 def payUp(amount):
     toPay = amount
+
     while Treasury.numberItems("platinum coin") > 0 and toPay > platinumCoin.value:
         toPay = toPay - platinumCoin.value
-        Treasury.removeItem("platinumCoin")
+        Treasury.removeItem("platinum coin")
     while Treasury.numberItems("gold coin") > 0 and toPay > goldCoin.value:
         toPay = toPay - goldCoin.value
-        Treasury.removeItem("goldCoin")
+        Treasury.removeItem("gold coin")
     while Treasury.numberItems("silver coin") > 0 and toPay > silverCoin.value:
         toPay = toPay - silverCoin.value
-        Treasury.removeItem("silverCoin")
+        Treasury.removeItem("silver coin")
     while Treasury.numberItems("bronze coin") > 0 and toPay > bronzeCoin.value:
         toPay = toPay - bronzeCoin.value
-        Treasury.removeItem("bronzeCoin")
+        Treasury.removeItem("bronze coin")
     while Treasury.numberItems("iron coin") > 0 and toPay > ironCoin.value:
         toPay = toPay - ironCoin.value
-        Treasury.removeItem("ironCoin")
-    while Treasury.numberItems("copper coin") > 0 and toPay > copperCoin.value:
+        Treasury.removeItem("iron coin")
+    while Treasury.numberItems("copper coin") > 0 and toPay > 0:
         toPay = toPay - copperCoin.value
-        Treasury.removeItem("copperCoin")
+        Treasury.removeItem("copper coin")
+
+    while Treasury.numberItems("iron coin") > 0 and toPay > 0:
+        toPay = toPay - ironCoin.value
+        Treasury.removeItem("iron coin")
+    while Treasury.numberItems("bronze coin") > 0 and toPay > 0:
+        toPay = toPay - bronzeCoin.value
+        Treasury.removeItem("bronze coin")
+    while Treasury.numberItems("silver coin") > 0 and toPay > 0:
+        toPay = toPay - silverCoin.value
+        Treasury.removeItem("silver coin")
+    while Treasury.numberItems("gold coin") > 0 and toPay > 0:
+        toPay = toPay - goldCoin.value
+        Treasury.removeItem("gold coin")
+    while Treasury.numberItems("platinum coin") > 0 and toPay > 0:
+        toPay = toPay - platinumCoin.value
+        Treasury.removeItem("platinum coin")
+
+    if toPay > 0:
+        return False
+    return True
 
 
 class Miner:
 
     count = 0
-    pay = 2
+    pay = 1
 
     def work(self):
-        for i in range(self.count):
-            if(payUp(self.pay * self.count)):
+        if(payUp(self.pay * self.count)):
+            for i in range(self.count):
                 Furnace.mineStone()
 
 def addMiner():
@@ -71,12 +92,12 @@ def removeMiner():
 class Lumberer:
 
     count = 0
-    pay = 2
+    pay = 1
 
     def work(self):
-        for i in range(self.count):
-            if(payUp(self.pay * self.count)):
-                Sawmill.gatherWood()
+        if(payUp(self.pay * self.count)):
+            for i in range(self.count):
+                Sawmill.gatherWood
         
 def addLumberer():
     global unemployed
@@ -93,11 +114,11 @@ def removeLumberer():
 class Carpenter:
 
     count = 0
-    pay = 2
+    pay = 1
 
     def work(self):
-        for i in range(self.count):
-            if(payUp(self.pay * self.count)):
+        if(payUp(self.pay * self.count)):
+            for i in range(self.count):
                 Sawmill.craftPlank()
 
 def addCarpenter():
@@ -113,14 +134,14 @@ def removeCarpenter():
         Carpenter.count -= 1
 
 class metalWorker:
-
+    
     count = 0
-    pay = 3
+    pay = 2
 
     def work(self):
-        for i in range(self.count):
-            if(payUp(self.pay * self.count)):
-                for i in len(types):
+        if(payUp(self.pay * self.count)):
+            for i in range(self.count):
+                for i in range(len(types)):
                     if(Furnace.canSmeltBar(types[i])):
                         Furnace.smeltBar(types[i])
                         return
@@ -140,12 +161,12 @@ def removeMetalWorker():
 class coinSmith:
 
     count = 0
-    pay = 5
+    pay = 3
 
     def work(self):
-        for i in range(self.count):
-            if(payUp(self.pay * self.count)):
-                for i in len(types):
+        if(payUp(self.pay * self.count)):
+            for i in range(self.count):
+                for i in range(len(types)):
                     if(Mint.canCraft(types[i])):
                         Mint.canCraft(types[i])
                         return
@@ -169,7 +190,7 @@ def updateGoblins(self):
 
     if(Treasury.totalValue() > valueThreshold):
         addGoblins(self, 5)
-        self.valueThreshold = self.valueThreshold + valueThreshold
+        self.valueThreshold = self.valueThreshold * 1.5
     
     for i in range(Miner.count):
         Miner.work(Miner)

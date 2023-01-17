@@ -7,16 +7,19 @@ import Building
 
 maxLevel = 7
 
+numPerCraft = 8
+
 global level
 level = 0
 reqs = json.load(open("data/upgradeRequirements.json"))["Mint"]
 
 def mintCoins(type):
     
-    Treasury.removeItem(type + " bar")
+    if(canCraft(type)):
+        Treasury.removeItem(type + " bar")
 
-    for i in range(5):
-        Treasury.addItem(type + " coin")
+        for i in range(numPerCraft):
+            Treasury.addItem(type + " coin")
 
 def canCraft(type):
     global level

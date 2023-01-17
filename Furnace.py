@@ -36,17 +36,16 @@ def mineStone():
         Treasury.addItem("platinum ore")
 
 def smeltBar(type):
-    Treasury.addItem(type + " bar")
-    Treasury.removeItem(type + " ore")
-    Treasury.removeItem("coal")
+    if(canSmeltBar(type)):
+        Treasury.addItem(type + " bar")
+        Treasury.removeItem(type + " ore")
+        Treasury.removeItem("coal")
 
 def canSmeltBar(type):
     global level
     if level == 0:
         return False
-    requiredItem = Treasury.itemSet["ore"].copy()
-    requiredItem.addAttribute(type)
-    if(Treasury.numberItems(requiredItem.stringifyItem()) > 0 and Treasury.numberItems("coal")):
+    if(Treasury.numberItems(type + " ore") > 0 and Treasury.numberItems("coal") > 0):
         return True
     return False
 
